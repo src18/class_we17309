@@ -1,5 +1,9 @@
-const homePage = () => {
-  return `homePage`;
+import Header from "../components/header";
+import Footer from "../components/footer";
+const Homepage = () => {
+  return `
+        ${Header()}
+        ${Footer()}
+    `;
 };
-const a = 10;
-export { homePage, a };
+export default Homepage;
