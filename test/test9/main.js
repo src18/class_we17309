@@ -5,9 +5,10 @@ import Projects from "./lib/pages/Projects";
 import ProjectDetall from "./lib/pages/ProjectDetall";
 import PojectAdminPage from "./lib/pages/Admin/projects";
 import ProjectAdd from "./lib/pages/Admin/project-add";
-import ProjectEdit from "./lib/pages/Admin/project-edit";
+
 import { render, router } from "./lib";
 import NotFound from "./lib/pages/Not-Found";
+import ProjectEdit from "./lib/pages/Admin/project-edit";
 
 const app = document.querySelector("#app");
 router.on("/", () => render(Homepage, app));
@@ -16,8 +17,8 @@ router.on("/projects", () => render(Projects, app));
 router.on("/project/:id", (param) => render(() => ProjectDetall(param), app));
 router.on("/admin", () => render(PojectAdminPage, app));
 router.on("/add", () => render(ProjectAdd, app));
-router.on("/project/:id/edit", (param) =>
-  render(() => ProjectEdit(param), app)
+router.on("admin/:id/edit", ({ data: { id } }) =>
+  render(() => ProjectEdit(id), app)
 );
 router.notFound(() => render(NotFound, app));
 
